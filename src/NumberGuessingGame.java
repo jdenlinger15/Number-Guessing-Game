@@ -15,6 +15,10 @@ public class NumberGuessingGame {
 
         //System.out.println(pickedNumber);
         System.out.println("Please, give me a number.");
+
+
+
+       
         guessedNumber = keyboard.nextInt();
 
         while(!gotItRight){
