@@ -2,45 +2,44 @@ import java.util.Scanner;
 
 public class NumberGuessingGame {
 
-    public static void main (String[]args){
+    public static void main(String[] args) {
 
         Scanner keyboard;
         int pickedNumber;
         int guessedNumber;
-        boolean gotItRight;
 
-        pickedNumber = (int)(Math.random()*100);
+        String again;
+
+
         keyboard = new Scanner(System.in);
-        gotItRight = false;
-
-        //System.out.println(pickedNumber);
-        System.out.println("Please, give me a number.");
 
 
+        do {
+            pickedNumber = (int) (Math.random() * 100);
+            // System.out.println(pickedNumber);
+            System.out.println("Please guess a number.");
+            guessedNumber = keyboard.nextInt();
+            again = "";
 
-       
-        guessedNumber = keyboard.nextInt();
+            while (guessedNumber != pickedNumber) {
+                if (guessedNumber < pickedNumber) {
+                    System.out.println("Your number is too low.");
 
-        while(!gotItRight){
+                } else {
+                    System.out.println("Your number is too high");
 
-
-            if (guessedNumber < pickedNumber){
-                System.out.println("Your number is too low.");
-
-            } else if (guessedNumber > pickedNumber){
-                System.out.println("Your number is too high.");
-
-            } else if (guessedNumber == pickedNumber){
-                System.out.println("You guessed correct! Congratulations!");
-
-                gotItRight = true;
-                break;
+                }
+                System.out.println("Guess again please.");
+                guessedNumber = keyboard.nextInt();
+            }
+            if (guessedNumber == pickedNumber) {
+                System.out.println("You guessed correct! Congrats!");
             }
 
-            System.out.println("Please, guess again.");
-            guessedNumber = keyboard.nextInt() ;
-        }
+            System.out.println("Would you like to play again? (yes or no).");
+            again = keyboard.next().toLowerCase();
+
+            }while (again.equals("yes"));
+             System.out.println("Ok then, Adios!");}}
 
 
-    }
-}
